@@ -37,6 +37,8 @@ def analyze():
         msg = str(err)
         if "429" in msg or "quota" in msg.lower():
             return jsonify(error="Όριο χρήσης (429). Περίμενε ένα λεπτό και ξαναδοκίμασε."), 429
+        if "10061" in msg or "connection refused" in msg.lower():
+            return jsonify(error="Δεν ήταν δυνατή η σύνδεση με το Ollama (port 11434). Βεβαιώσου ότι το Ollama είναι ανοιχτό (π.χ. 'ollama serve')."), 503
         return jsonify(error=f"Σφάλμα μοντέλου: {msg}"), 502
     CACHE[key] = material
     return jsonify(material)

@@ -80,6 +80,15 @@ def test_quota_error_maps_to_429(client, monkeypatch):
     assert upload(client).status_code == 429
 
 
+def test_ollama_connection_error_maps_to_503(client, monkeypatch):
+    def boom(*a, **k):
+        raise RuntimeError("<urlopen error [WinError 10061] Connection refused>")
+    monkeypatch.setattr(llm_client, "generate_study_material", boom)
+    res = upload(client, private="1")
+    assert res.status_code == 503
+    assert "Ollama" in res.get_json()["error"]
+
+
 def test_parse_valid_material():
     assert llm_client.parse_material(json.dumps(GOOD))["flashcards"][0]["front"] == "Ε0"
 
