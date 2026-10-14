@@ -1,0 +1,20 @@
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing
+.pytest_cache/
+
+# Large media files (original screen recordings)
+*.mp4

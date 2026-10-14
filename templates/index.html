@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Copilot</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <h1>Study Copilot</h1>
+  <p class="lead">Ανέβασε τις διαφάνειες ενός μαθήματος και πάρε περίληψη, flashcards και quiz.</p>
+
+  <div class="upload">
+    <input type="file" id="pdf" accept="application/pdf" aria-label="Αρχείο PDF">
+    <label class="check"><input type="checkbox" id="private"> Ιδιωτική λειτουργία (Gemma στο laptop)</label>
+    <button id="go">Φτιάξε υλικό</button>
+  </div>
+  <p id="status" role="status"></p>
+
+  <div id="results" hidden>
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="summary" aria-selected="true">Περίληψη</button>
+      <button role="tab" data-tab="cards" aria-selected="false">Flashcards</button>
+      <button role="tab" data-tab="quiz" aria-selected="false">Quiz</button>
+    </div>
+    <section id="summary"></section>
+    <section id="cards" hidden></section>
+    <section id="quiz" hidden></section>
+  </div>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
