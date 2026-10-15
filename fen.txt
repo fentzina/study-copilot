@@ -1,0 +1,6 @@
+1. Prepare this project for a public GitHub repo. Make the README show: what it does, a 3-command quick start (clone, pip install, run), how to get a free Gemini API key, how to use private mode with Ollama, and how to add the MCP server to an agent. Check that .env is ignored and that no API key appears anywhere in the repo or in git history.
+
+2. Add https://github.com/fentzina/study-copilot as the origin remote and push the main branch.
+
+3. git remote set-url origin https://<YOUR GITHUB TOKEN (ghp...)>@://github.com/<USER NAME>/study-copilot.git
+---> gia na pareis to TOKEN, pas sto github: photo profile->settings->"<> developer settings" -> Personal access tokens-> tokens (classic) -> generate new token (classic)
